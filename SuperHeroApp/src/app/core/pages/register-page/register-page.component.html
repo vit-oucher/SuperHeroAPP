@@ -1,0 +1,32 @@
+<div class="registration-form">
+  <div class="registration-form-container">
+    <div class="registration-form-container__email">
+
+      <p class="registration-form-container__email__label">
+        <b>EMAIL</b>
+      </p>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+<!--          <mat-label></mat-label>-->
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. example@example.com">
+
+        </mat-form-field>
+      </form>
+      <p class="registration-form-container__email__label">
+        <b>PASSWORD</b>
+      </p>
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <mat-icon matSuffix (click)="hide = !hide" > {{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+      </mat-form-field>
+      <p class="registration-form-container__email__label">
+        <b>CONFIRM PASSWORD</b>
+      </p>
+      <mat-form-field>
+        <input matInput placeholder="Confirm your password" [formControl]="confirmPasswordFormControl" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <mat-icon matSuffix (click)="hide = !hide" > {{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
