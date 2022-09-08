@@ -1,1 +1,37 @@
-<p>login-page works!</p>
+<div class="login-form">
+  <div class="login-form_nav">
+    <p class="login-form_nav__question">
+      If You Don`t Have Account
+    </p>
+    <button class="btn" mat-raised-button
+            color="primary"
+            [routerLink]="'/Register'"
+    >Registration</button>
+  </div>
+  <div class="login-form-container">
+    <div class="login-form-container__email">
+
+      <p class="login-form-container__email__labels">
+        EMAIL
+      </p>
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter Your Email </mat-label>
+          <input type="email" matInput [formControl]="loginForm.get('email') | getControl" placeholder="Ex. example@example.com">
+        </mat-form-field>
+      </form>
+
+      <p class="login-form-container__email__labels">
+        PASSWORD
+      </p>
+      <mat-form-field>
+        <input matInput placeholder="Enter Your Password" [formControl]="loginForm.get('password') | getControl">
+      </mat-form-field>
+  </div>
+    <button class="btn" mat-raised-button
+            color="primary"
+            [disabled]="!loginForm.valid"
+            (click)="login()"
+    >log in</button>
+</div>
+</div>
