@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {passwordValidator} from "../../validators/auth-validators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-page',
@@ -12,7 +13,8 @@ export class RegisterPageComponent implements OnInit {
 public registrationForm!: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
  public ngOnInit(): void {
@@ -41,13 +43,13 @@ private initializeFormInRegistration(): void {
       Validators.required
     ]),
     email: new FormControl('', [
-      Validators.required, Validators.pattern( /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ )
+      Validators.required, //(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ )
     ]),
     password: new FormControl('', [
-      Validators.required, Validators.pattern(/(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{3})(?=.*[@#$%^&+!=]).*$/ )
+      Validators.required, //Validators.pattern(/(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{3})(?=.*[@#$%^&+!=]).*$/ )
     ]),
     confPassword: new FormControl('', [
-      Validators.required, Validators.pattern(/(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{3})(?=.*[@#$%^&+!=]).*$/ )
+      Validators.required, //Validators.pattern(/(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]{3})(?=.*[@#$%^&+!=]).*$/ )
     ])
   }, { validators: [ passwordValidator ] });
 

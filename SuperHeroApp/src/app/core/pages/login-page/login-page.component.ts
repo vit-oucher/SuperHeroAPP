@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
   public loginForm!: FormGroup;
 
+
   constructor(
     private fb: FormBuilder,
     private router: Router
@@ -26,14 +27,14 @@ export class LoginPageComponent implements OnInit {
         email: this.loginForm.get('email')?.value,
         password: this.loginForm.get('password')?.value,
       };
-
+      const errorLogin: string = 'User Does Not Exist';
       const registeredUsers = [JSON.parse(localStorage.getItem('users') || '')];
       const authUser = registeredUsers.find((user: any) => user.email === payload.email
         && user.password === payload.password);
       if (authUser) {
         localStorage.setItem('session', JSON.stringify(authUser));
         this.router.navigate(['/Home']);
-      }
+      } //else errorLogin;
     }
   }
 

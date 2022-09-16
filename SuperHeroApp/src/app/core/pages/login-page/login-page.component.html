@@ -28,6 +28,9 @@
         <input matInput placeholder="Enter Your Password" [formControl]="loginForm.get('password') | getControl">
       </mat-form-field>
   </div>
+
+<!--    <p *ngIf="registrationForm.hasError('error')"> {{registrationForm.getError('error')}} </p>-->
+
     <button class="btn" mat-raised-button
             color="primary"
             [disabled]="!loginForm.valid"
