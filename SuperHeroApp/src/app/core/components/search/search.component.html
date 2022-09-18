@@ -1,0 +1,32 @@
+<div class="search-container">
+        <div class="input-container">
+          <div class="input-container-wrapper">
+            <input class="input-container-in" type="text" placeholder="Name of Hero" [formControl]="searchControl">
+            <img (click)="searchHeroes()" class="input-container-img" src="assets/imgs/search-icon-png.png" alt="search">
+          </div>
+        </div>
+  <div class="heroCards-container">
+    <div class="heroes" *ngFor="let hero of heroes">
+      <div class="hero-card"
+        (click)="goToDetailsHero(hero)"
+      >
+        <div class="left-hero-images">
+          <img class="hero-img" [src]="hero.image.url" alt="hero-pic">
+        </div>
+        <div class="right-hero-details">
+          <div class="detail-info">
+            <h1><b>{{ hero.name }}</b></h1>
+            <p>{{ 'intelligence' | titlecase }} {{ hero.powerstats.intelligence }}</p>
+            <p>{{ 'strength' | titlecase }} {{ hero.powerstats.strength }}</p>
+            <p>{{ 'speed' | titlecase }} {{ hero.powerstats.speed }}</p>
+            <p>{{ 'durability' | titlecase }} {{ hero.powerstats.durability }}</p>
+            <p>{{ 'power' | titlecase }} {{ hero.powerstats.power }}</p>
+            <p>{{ 'combat' | titlecase }} {{ hero.powerstats.combat }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
